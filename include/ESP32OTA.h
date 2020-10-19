@@ -1,9 +1,8 @@
+#ifndef ESP32OTA_H
+#define ESP32OTA_H
 #include <Arduino.h>
 #include <HTTPClient.h>
 #include <Update.h>
-#ifndef ESP32OTA_H
-#define ESP32OTA_H
-
 class ESP32OTA
 {
 
