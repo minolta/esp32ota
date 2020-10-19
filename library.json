@@ -1,6 +1,6 @@
 {
     "name": "ESP32OTA",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "For ESP32 OTA update",
     "keywords": "OTA,esp32",
     "repository": {

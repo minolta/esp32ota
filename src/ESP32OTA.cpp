@@ -166,3 +166,8 @@ void ESP32OTA::ota()
   Serial.println("Exit");
   message = "exit update";
 }
+
+void ESP32OTA::setHost(String nh)
+{
+    host = nh;
+}
