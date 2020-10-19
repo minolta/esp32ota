@@ -1,5 +1,4 @@
 #include "ESP32OTA.h"
-
 String ESP32OTA::getHeaderValue(String header, String headerName)
 {
     return header.substring(strlen(headerName.c_str()));
