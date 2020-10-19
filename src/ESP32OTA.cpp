@@ -171,3 +171,12 @@ void ESP32OTA::setHost(String nh)
 {
     host = nh;
 }
+
+void ESP32OTA::setUpdateUrl(String u)
+{
+  updateurl = u;
+}
+void ESP32OTA::setVersion(String v)
+{
+  version = v;
+}
