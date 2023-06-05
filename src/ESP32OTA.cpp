@@ -3,9 +3,13 @@ String ESP32OTA::getHeaderValue(String header, String headerName)
 {
     return header.substring(strlen(headerName.c_str()));
 }
+void ESP32OTA::setport(int p)
+{
+  port = p;
+}
 void ESP32OTA::ota()
 {
-  if (client.connect(host.c_str(), 8080))
+  if (client.connect(host.c_str(), port))
   {
     // Connection Succeed.
     // Fecthing the bin
