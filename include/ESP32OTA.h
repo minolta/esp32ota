@@ -13,6 +13,7 @@ private:
     long contentLength;
     String message;
     String host;
+    int port = 8080;
     WiFiClient client;
     String updateurl;
     String version;
@@ -23,5 +24,6 @@ public:
     void setHost(String);
     void setUpdateUrl(String);
     void setVersion(String);
+    void setport(int);
 };
 #endif
