@@ -15,6 +15,8 @@ void ESP32OTA::ota()
     // Fecthing the bin
     // Serial.println("Fetching Bin: " + String(bin));
     message = "Fetching Bin: " + String(updateurl);
+    Serial.print("URL:");
+    Serial.println(updateurl);
     // Get the contents of the bin file
     client.print(String("GET ") + updateurl + " HTTP/1.1\r\n" +
                  "Host: " + host + "\r\n" +
@@ -61,7 +63,8 @@ void ESP32OTA::ota()
       {
         if (line.indexOf("200") < 0)
         {
-          Serial.println("Got a non 200 status code from server. Exiting OTA Update.");
+          Serial.println("Got a non 200 status code from server. Exiting OTA Update. LINE:");
+          Serial.println(line);
           // message = "Got a non 200 status code from server. Exiting OTA Update.";
           client.stop();
           return;
