@@ -3,20 +3,14 @@ String ESP32OTA::getHeaderValue(String header, String headerName)
 {
     return header.substring(strlen(headerName.c_str()));
 }
-void ESP32OTA::setport(int p)
-{
-  port = p;
-}
 void ESP32OTA::ota()
 {
-  if (client.connect(host.c_str(), port))
+  if (client.connect(host.c_str(), defaultport))
   {
     // Connection Succeed.
     // Fecthing the bin
     // Serial.println("Fetching Bin: " + String(bin));
     message = "Fetching Bin: " + String(updateurl);
-    Serial.print("URL:");
-    Serial.println(updateurl);
     // Get the contents of the bin file
     client.print(String("GET ") + updateurl + " HTTP/1.1\r\n" +
                  "Host: " + host + "\r\n" +
@@ -63,8 +57,7 @@ void ESP32OTA::ota()
       {
         if (line.indexOf("200") < 0)
         {
-          Serial.println("Got a non 200 status code from server. Exiting OTA Update. LINE:");
-          Serial.println(line);
+          Serial.println("Got a non 200 status code from server. Exiting OTA Update.");
           // message = "Got a non 200 status code from server. Exiting OTA Update.";
           client.stop();
           return;
@@ -186,4 +179,8 @@ void ESP32OTA::setUpdateUrl(String u)
 void ESP32OTA::setVersion(String v)
 {
   version = v;
+}
+void ESP32OTA::setPort(int p)
+{
+  defaultport = p;
 }
