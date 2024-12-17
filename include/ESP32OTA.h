@@ -10,10 +10,10 @@ private:
     boolean isValidContentType = false;
     int otatimeout;
     int otatimeouttime = 5;
+    int defaultport = 2222;
     long contentLength;
     String message;
     String host;
-    int port = 8080;
     WiFiClient client;
     String updateurl;
     String version;
@@ -24,6 +24,6 @@ public:
     void setHost(String);
     void setUpdateUrl(String);
     void setVersion(String);
-    void setport(int);
+    void setPort(int);
 };
 #endif
